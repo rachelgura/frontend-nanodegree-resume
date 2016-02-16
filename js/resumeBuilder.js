@@ -1,21 +1,19 @@
+
+	
+
+// bio info //
+
 var name = "Rachel Gura"
 var formattedName = HTMLheaderName.replace("%data%", name)
 
 var role = "Front End Web Developer";
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
-	
-
-/* bio info */
-
-
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 var formattedName=HTMLheaderName.replace("%data%",bio.name);
 var formattedRole=HTMLheaderRole.replace("%data%",bio.role);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
 
 /* contact info */
 
@@ -32,13 +30,13 @@ var formattedLocation= HTMLlocation.replace("%data%",bio.contacts.location);
 var formattedWelcomeMessage=HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
 
-/* bio Pic */
+// bio Pic //
 
 var formattedbioPic=HTMLbioPic.replace("%data%",bio.biopic);
 
     $("#header").append(formattedbioPic);
 
-/* skills */
+// skills //
 
 
 if ( bio.skills.length > 0 ){
@@ -47,10 +45,10 @@ if ( bio.skills.length > 0 ){
     for (skill in bio.skills){
         var formattedSkill=HTMLskills.replace("%data%", bio.skills[skill]);
         $("#skills").append(formattedSkill);
-    } 
+   } 
 }
 
-/* work info */
+// work info //
 
 work.display = function (){
 
@@ -128,25 +126,26 @@ if (work.jobs.length > 0 ){
 
 
 
-=======
-/* bio objects */
+
+// bio objects //
+
 
 var bio = {
 
-	"name": "Rachel Gura",
+	"name": "name",
     "role": "Front End Web Developer",
-    "contacts": 
-        {
+    "contacts": {
+        
         "mobile": "903-272-4648",
-        "email": "sparrowdetour@gmail.com" ,
+        "email": "sparrowdetour@gmail.com",
         "github": "rachelgura",
         "twitter": "@rgura",
         "location": "Dallas, TX"
             },
-    "welcomeMessage": "Welcome to my interactive resume. I'm looking for oportunities as Front-End Developer.\
-                        ",
+    "welcomeMessage": "Welcome to my interactive resume. I'm looking for opportunities as Front-End Developer.",
     "skills": ["HTML", "CSS Frameworks", "jQuery", "Bootstrap", "Github"],
-    "biopic": "images/profile.jpg",
+    "biopic": "images/kitty.jpg"
+	}
     "display": function() {
 
         if ( bio.name 
@@ -200,9 +199,9 @@ var work = {
         {
         "employer": "Animal Hospital of Valley Ranch",
         "title": "Veterinary Assitant" ,
-        "location": "Irving, Texas", 
+        "location": "Irving, Texas",
         "dates": "2011-2012",
-        "description": "Assitant to the doctor, maintained boarding facility." 
+        "description": "Assitant doctor, maintained boarding facility." 
             },
 	    {
         "employer": "Cinemark USA",
@@ -356,7 +355,7 @@ function avoidHacking(data){
 	return data.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/* filling content */
+// filling content //
 
 bio.display();
 work.display();
@@ -365,16 +364,11 @@ education.display();
 
 //$("#main").prepend(internationalizeButton);
 
-function inName() {
 
-    var firstName = bio.name.split(" ")[0];
-    var lastName = bio.name.split(" ")[1];
-    return firstName.slice(0,1).toUpperCase() + firstName.slice(1).toLowerCase() + " "+ lastName.toUpperCase();
-}
 
 $("#mapDiv").append(googleMap);
 
-/* display blocks */
+// display blocks //
 
       if(document.getElementsByClassName('flex-item').length === 0) {
         document.getElementById('topContacts').style.backgroundColor = '#000000'    ;
@@ -397,4 +391,3 @@ $("#mapDiv").append(googleMap);
       if(document.getElementById('map') === null) {
         document.getElementById('mapDiv').style.backgroundColor = '#000000';
       }
->>>>>>> 10e64e9aa38f87a422007d2709fb2291bcc7c01b
