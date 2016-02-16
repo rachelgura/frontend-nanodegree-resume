@@ -8,95 +8,7 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 	$("#header").prepend(formattedName);
 	
 
-$("#header").append(HTMLskillsStart);
-$("#skills").append(formattedSkills);
-
-var bio = {
-	"name" : "name",
-	"role" : "Front End Web Developer",
-	"contacts" : {
-		"mobile" : "903-272-4648",
-		"email" : "sparrowdetour@gmail.com",
-		"github" : "rachelgura",
-		"twitter" : "@sparrowdetour",
-		"location" : "Dallas, Texas",
-
-},
-	"bioPic" : "images/profile.jpg",
-	"welcomeMessage" : "Good News Everyone!",
-	"skills" : 
-		["Agile Problem Solver", "HTML", "CSS Frameworks", "JavaScript"],
-	  "display": "function taking no parameters"
-};
-var education={
-
-	"schools": [
-	    {
-    "name": "Texas Women's University",
-    "location": "Denton, TX",
-    "majors": "Psychology,
-    "dates": "2011-2013",
-        
-     		},
-   {
-    "name": "Paris Junior College",
-    "location": "Paris, TX",
-    "majors": "Psychology",
-    "dates": "2008-2010",
-         
-     		}
-     	],
-
-    "onlineCourses": [
-         {
-         	"title": "Front End Developer",
-         	"school": "Udacity",
-         	"date": "2016",
-         	"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-         	}
-         ],
-    
-
-};
-var work={
-	    "jobs": [
-	    {
-         "employer": "LPG",
-         "title": "Agent Support" ,
-         "location": "Dallas, TX", 
-         "dates": "2015-2016",
-         "description": "Add Text" 
-     		},
-     	{
-         "employer": "Cinemark USA",
-         "title": "Manager of Human Resources" ,
-         "location": "Denton, TX", 
-         "dates": "2010-2014",
-         "description": "Responsible for hiring, training and review of staff members." 
-     		}
-     	],
-    
-
-};
-var projects={
-    	"projects": [
-        {
-        "title": "Interactive Resume",
-        "dates": "2015",
-        "description": "An awesome interactive resume",
-        "images": <img src="http://lorempixel.com/350/350" class="img-responsive" alt="responsive image" />
-        	},
-        {
-        "title": "Interactive Resume",
-        "dates": "2015",
-        "description": "An awesome interactive resume",
-        "images": <img src="http://lorempixel.com/350/350" class="img-responsive" alt="responsive image" />
-            },
-    	],
-    	
-};
-
-/* Bio Information */
+/* bio info */
 
 
 var formattedName=HTMLheaderName.replace("%data%",bio.name);
@@ -105,7 +17,7 @@ var formattedRole=HTMLheaderRole.replace("%data%",bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-/* Contact information */
+/* contact info */
 
 var formattedMobile= HTMLmobile.replace("%data%",bio.contacts.mobile);
     $("#topContacts").append(formattedMobile);
@@ -120,13 +32,13 @@ var formattedLocation= HTMLlocation.replace("%data%",bio.contacts.location);
 var formattedWelcomeMessage=HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
 
-/* Bio Pic */
+/* bio Pic */
 
 var formattedbioPic=HTMLbioPic.replace("%data%",bio.biopic);
 
     $("#header").append(formattedbioPic);
 
-/* Skills */
+/* skills */
 
 
 if ( bio.skills.length > 0 ){
@@ -138,7 +50,7 @@ if ( bio.skills.length > 0 ){
     } 
 }
 
-/* Work information */
+/* work info */
 
 work.display = function (){
 
@@ -217,7 +129,7 @@ if (work.jobs.length > 0 ){
 
 
 =======
-/* Bio objects */
+/* bio objects */
 
 var bio = {
 
@@ -231,7 +143,7 @@ var bio = {
         "twitter": "@rgura",
         "location": "Dallas, TX"
             },
-    "welcomeMessage": "Wellcome to my interactive resume. I'm looking for oportunities as Front-End Developer.\
+    "welcomeMessage": "Welcome to my interactive resume. I'm looking for oportunities as Front-End Developer.\
                         ",
     "skills": ["HTML", "CSS Frameworks", "jQuery", "Bootstrap", "Github"],
     "biopic": "images/profile.jpg",
@@ -335,6 +247,12 @@ var projects = {
         "description": "An interactive resume that displays all relevant information about what i've made",
         "images": ["http://placehold.it/300x200","http://placehold.it/300x200"]
             },
+        {
+        "title": "Porfolio Project",
+        "dates": 2016,
+        "description": "A mock porfolio",
+        "images": ["http://placehold.it/300x200","http://placehold.it/300x200"]
+            }
         ], 
     "display": function(){
 
@@ -374,7 +292,7 @@ var education = {
         "name": "Paris Junior College",
         "location": "Paris, TX",
         "majors": ["Psychology"],
-        "dates": 2008
+        "dates": 2010
        		},
         ],
 
@@ -383,7 +301,7 @@ var education = {
         {
         "title": "Front End Developer",
         "school": "Udacity",
-        "date": 2015,
+        "date": 2016,
         "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
             }
         ],
@@ -396,8 +314,6 @@ var education = {
 
                 $("#education").append(HTMLschoolStart);
                 var formattedschoolName = HTMLschoolName.replace("%data%", avoidHacking(education.schools[school].name));
-                var formattedschoolDegree = HTMLschoolDegree.replace("%data%", avoidHacking(education.schools[school].degree));
-                var formattedNameDegree = formattedschoolName + formattedschoolDegree;
                 $(".education-entry:last").append(formattedNameDegree);
                 var formattedschoolDates= HTMLschoolDates.replace("%data%", avoidHacking(education.schools[school].dates));
                 $(".education-entry:last").append(formattedschoolDates);
@@ -433,14 +349,14 @@ var education = {
     }
 };
 
-/* Avoid hacking function */
+
 
 function avoidHacking(data){
 
 	return data.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/* Filling the content */
+/* filling content */
 
 bio.display();
 work.display();
@@ -458,7 +374,7 @@ function inName() {
 
 $("#mapDiv").append(googleMap);
 
-/* Display blocks */
+/* display blocks */
 
       if(document.getElementsByClassName('flex-item').length === 0) {
         document.getElementById('topContacts').style.backgroundColor = '#000000'    ;
