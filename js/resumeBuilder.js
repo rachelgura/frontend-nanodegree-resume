@@ -1,56 +1,7 @@
 
-	
-
-// bio info //
-
-var name = "Rachel Gura"
-var formattedName = HTMLheaderName.replace("%data%", name)
-
-var role = "Front End Web Developer";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-var formattedName=HTMLheaderName.replace("%data%",bio.name);
-var formattedRole=HTMLheaderRole.replace("%data%",bio.role);
-
-
-/* contact info */
-
-var formattedMobile= HTMLmobile.replace("%data%",bio.contacts.mobile);
-    $("#topContacts").append(formattedMobile);
-var formattedEmail= HTMLemail.replace("%data%",bio.contacts.email);
-    $("#topContacts").append(formattedEmail);
-var formattedGithub= HTMLgithub.replace("%data%",bio.contacts.github);
-    $("#topContacts").append(formattedGithub);
-var formattedTwitter= HTMLtwitter.replace("%data%",bio.contacts.twitter);
-    $("#topContacts").append(formattedTwitter);
-var formattedLocation= HTMLlocation.replace("%data%",bio.contacts.location);
-    $("#topContacts").append(formattedLocation);
-var formattedWelcomeMessage=HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-    $("#header").append(formattedWelcomeMessage);
-
-// bio Pic //
-
-var formattedbioPic=HTMLbioPic.replace("%data%",bio.biopic);
-
-    $("#header").append(formattedbioPic);
-
-// skills //
-
-
-if ( bio.skills.length > 0 ){
-    $("#header").append(HTMLskillsStart);
-
-    for (skill in bio.skills){
-        var formattedSkill=HTMLskills.replace("%data%", bio.skills[skill]);
-        $("#skills").append(formattedSkill);
-   } 
-}
-
 // work info //
 
-work.display = function (){
+var work = function (){
 
     if(work.jobs.length > 0){
 
@@ -70,9 +21,9 @@ work.display = function (){
         }
     }
 }
-work.display();
+work.display;
 
-projects.display= function (){
+var projects = function (){
 
     if(projects.projects.length > 0){
 
@@ -95,7 +46,13 @@ projects.display= function (){
         }
     }
 }
-projects.display();
+projects.display;
+
+
+
+
+
+
 
 $(document).click(function(loc) {
   var x = loc.pageX;
@@ -103,28 +60,13 @@ $(document).click(function(loc) {
   logClicks(x,y);
 });
 
-function inName(){
+function inName() {
     var name=bio.name.split(" ");
-    name=name[0]+" "+name[1].toUpperCase();
     document.getElementById("name").innerHTML=name;
     console.log(name);
 }
 
 $("#mapDiv").append(googleMap);  
-/*
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
-if (work.jobs.length > 0 ){
-    $("#header").append(HTMLskillsStart);
-    var formattedSkill=HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-     var formattedSkill=HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-     var formattedSkill=HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-*/
-
-
 
 
 // bio objects //
@@ -132,7 +74,7 @@ if (work.jobs.length > 0 ){
 
 var bio = {
 
-	"name": "name",
+    "name": "Rachel Gura",
     "role": "Front End Web Developer",
     "contacts": {
         
@@ -142,22 +84,13 @@ var bio = {
         "twitter": "@rgura",
         "location": "Dallas, TX"
             },
-    "welcomeMessage": "Welcome to my interactive resume. I'm looking for opportunities as Front-End Developer.",
+    "welcomeMessage": "Welcome to my interactive resume.",
     "skills": ["HTML", "CSS Frameworks", "jQuery", "Bootstrap", "Github"],
-    "biopic": "images/kitty.jpg"
-	}
-    "display": function() {
+    "biopic": "images/profile.jpg",
 
-        if ( bio.name 
-            && bio.role 
-            && bio.biopic 
-            && bio.welcomeMessage  
-            && bio.contacts.email 
-            && bio.contacts.mobile 
-            && bio.contacts.twitter 
-            && bio.contacts.github
-            && bio.contacts.location
-            && bio.skills ) {
+
+ "display" : function() {
+
 
             var formattedHeaderRole = HTMLheaderRole.replace("%data%", avoidHacking(bio.role));
             $("#header").prepend(formattedHeaderRole);
@@ -181,7 +114,7 @@ var bio = {
             for (skill in bio.skills){
                 $("#skills").append(HTMLskills.replace("%data%", avoidHacking(bio.skills[skill])));
             }
-        }
+        
     }
 };
 
@@ -201,19 +134,19 @@ var work = {
         "title": "Veterinary Assitant" ,
         "location": "Irving, Texas",
         "dates": "2011-2012",
-        "description": "Assitant doctor, maintained boarding facility." 
+        "description": "Assitant to the doctor in procudes and surgery, maintained boarding facility." 
             },
-	    {
+        {
         "employer": "Cinemark USA",
         "title": "Manager of Human Resources" ,
         "location": "Denton, Texas", 
         "dates": "2010-2014",
         "description": "Responsible for hiring, training and evaluation of employees." 
             },
-     	
+        
         ],
 
-    "display": function() {
+ "display" : function() {
 
         if (work.jobs) {
 
@@ -236,6 +169,8 @@ var work = {
     }
 };
 
+
+
 var projects = {
 
     "projects": [
@@ -253,7 +188,7 @@ var projects = {
         "images": ["http://placehold.it/300x200","http://placehold.it/300x200"]
             }
         ], 
-    "display": function(){
+"display" : function() {
 
         if (projects.projects){
 
@@ -284,15 +219,17 @@ var education = {
         {
         "name": "Texas Women's University",
         "location": "Denton, TX",
+        "degree" : "BS",
         "majors": ["Psychology"],
-         "dates": 2013
-          	},
+        "dates": 2013
+            },
         {
         "name": "Paris Junior College",
         "location": "Paris, TX",
+        "degree" : "Associates",
         "majors": ["Psychology"],
         "dates": 2010
-       		},
+            },
         ],
 
     "onlineCourses": [
@@ -305,7 +242,7 @@ var education = {
             }
         ],
 
-    "display": function() {
+"display": function() {
 
         if (education.schools.length > 0) {
 
@@ -313,6 +250,7 @@ var education = {
 
                 $("#education").append(HTMLschoolStart);
                 var formattedschoolName = HTMLschoolName.replace("%data%", avoidHacking(education.schools[school].name));
+                
                 $(".education-entry:last").append(formattedNameDegree);
                 var formattedschoolDates= HTMLschoolDates.replace("%data%", avoidHacking(education.schools[school].dates));
                 $(".education-entry:last").append(formattedschoolDates);
@@ -348,11 +286,9 @@ var education = {
     }
 };
 
-
-
 function avoidHacking(data){
 
-	return data.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return data.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 // filling content //
@@ -364,7 +300,38 @@ education.display();
 
 //$("#main").prepend(internationalizeButton);
 
+/* contact info */
 
+var formattedMobile= HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#topContacts").append(formattedMobile);
+var formattedEmail= HTMLemail.replace("%data%",bio.contacts.email);
+    $("#topContacts").append(formattedEmail);
+var formattedGithub= HTMLgithub.replace("%data%",bio.contacts.github);
+    $("#topContacts").append(formattedGithub);
+var formattedTwitter= HTMLtwitter.replace("%data%",bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+var formattedLocation= HTMLlocation.replace("%data%",bio.contacts.location);
+    $("#topContacts").append(formattedLocation);
+var formattedWelcomeMessage=HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcomeMessage);
+
+// bio Pic //
+
+var formattedbioPic=HTMLbioPic.replace("%data%",bio.biopic);
+
+    $("#header").append(formattedbioPic);
+
+// skills //
+
+
+if ( bio.skills.length > 0 ){
+    $("#header").append(HTMLskillsStart);
+
+    for (skill in bio.skills){
+        var formattedSkill=HTMLskills.replace("%data%", bio.skills[skill]);
+        $("#skills").append(formattedSkill);
+   } 
+}
 
 $("#mapDiv").append(googleMap);
 
