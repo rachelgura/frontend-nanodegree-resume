@@ -46,7 +46,7 @@ ul {
   color: #0B91F2;
 }
 .container{
-  background-image: url('../images/background.png');
+  
   background-repeat: no-repeat; 
 }
 button.btn {
@@ -178,13 +178,13 @@ margin-top: 0;
   .nameRole {
 
     text-align: center;
-    background-image: url('../images/m_h_background.png');
+
     background-repeat: no-repeat;
   }
 
   .container {
 
-    background-image: url('../images/m_background.png');
+   
     background-repeat: no-repeat;
 
   }

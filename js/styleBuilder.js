@@ -56,12 +56,7 @@ $('span.orange-text').addClass('blue-text').removeClass('orange-text');
 /* I don´t need the <hr> */
 $('hr').remove();
 
- /* Adding links to contacts */
-$('#topContacts li:nth-child(2) span:nth-child(2)').wrap('<a href="mailto:'+bio.contacts.email+'"></a>');
-$('#topContacts li:nth-child(3) span:nth-child(2)').wrap('<a href="https://twitter.com/franjlg"></a>');
-$('#topContacts li:nth-child(4) span:nth-child(2)').wrap('<a href="https://github.com/Frandman"></a>');
-$('#topContacts li:nth-child(5) span:nth-child(2)').wrap('<a href="http://franjlopez.es/"></a>');
-$('#topContacts li:nth-child(6) span:nth-child(2)').wrap('<a href="https://www.google.es/maps/place/Madrid/"></a>');
+ 
 
 
 $( "#workExperience h2, #projects h2, #education h2").append('<button type="button" class="btn btn-default">Show</button>')
