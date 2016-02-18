@@ -132,8 +132,6 @@ bio.display = function() {
         var formattedGithub = HTMLgithub.replace("%contact%","Github").replace("%data%",bio.contacts[contact].Github);
         var formattedLocation =HTMLlocation.replace("%data%", bio.contacts[contact].location);
         var formattedTwitter =HTMLtwitter.replace("%data%", bio.contacts[contact].Twitter);
-        
-        $("#footerContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
         $("#topContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
     };
 };
