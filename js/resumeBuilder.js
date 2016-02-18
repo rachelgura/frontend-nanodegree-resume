@@ -1,14 +1,4 @@
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x,y);
-});
 
-function inName() {
-    var name=bio.name.split(" ");
-    document.getElementById("name").innerHTML=name;
-    console.log(name);
-}
 var bio = {
     "name" : "Rachel Gura",
     "role" : " Front End Web Developer",
@@ -20,11 +10,12 @@ var bio = {
         "Twitter" :"@rgura"
         
     }], 
-    "welcomeMessage" : "I'm an ambitious professional who takes pleasure in developing innovative andempathetic design.", 
+    "welcomeMessage" : "I'm an ambitious professional who takes pleasure in developing innovative and empathetic design.", 
     "biopic" : "images/profile.jpg",
     
-    "skills" : ["Motivated","Creative Thinker","HTML", "CSS Frameworks", "Bootstrap", "Github"]
-,};
+    "skills" : ["Motivated", "Creative Thinker","HTML", "CSS Frameworks", "Bootstrap", "Github"]
+};
+
 
 var work = {
     "jobs" : [
@@ -57,13 +48,13 @@ var projects = {
         "title" : "Interactive Resume",
         "dates" : "2016", 
         "description" : "An interactive resume detailing my experience.", 
-        "images" : ["","images/img2.jpg","images/img3.jpg","images/img4.jpg"]
+        "images" : ["http://lorempixel.com/300/200","http://lorempixel.com/300/200"]
     },
     {
         "title" : "Mock Portfolio",
         "dates" : "2016", 
         "description" : "A mock-up porfolio detailing CSS Frameworks.", 
-        "images" : ["images/img5.jpg","images/img6.jpg","images/img7.jpg","images/img8.jpg"]
+        "images" : ["http://lorempixel.com/300/200","http://lorempixel.com/300/200"]
     }]
 };
 
@@ -94,6 +85,7 @@ var education = {
     
     }]
 };
+
 education.display = function() {
         
     for(school in education.schools) {
@@ -121,10 +113,11 @@ education.display = function() {
 };
 
 bio.display = function() {
+  
     var formattedName = HTMLheaderName.replace("%data%",bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
     var formattedImage = HTMLbioPic.replace("%data%",bio.biopic);
-    var formattedMessage = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+    var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
     $("#header").prepend(formattedRole).prepend(formattedName).append(formattedImage,formattedMessage);
     $("#header").append(HTMLskillsStart);
 
@@ -139,6 +132,7 @@ bio.display = function() {
         var formattedGithub = HTMLgithub.replace("%contact%","Github").replace("%data%",bio.contacts[contact].Github);
         var formattedLocation =HTMLlocation.replace("%data%", bio.contacts[contact].location);
         var formattedTwitter =HTMLtwitter.replace("%data%", bio.contacts[contact].Twitter);
+        
         $("#footerContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
         $("#topContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
     };
@@ -191,6 +185,7 @@ bio.display();
 
 
 $("#mapDiv").append(googleMap);
+
 
 // display blocks //
 
