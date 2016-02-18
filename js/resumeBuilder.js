@@ -1,15 +1,15 @@
 
 var bio = {
     "name" : "Rachel Gura",
-    "role" : " Front End Web Developer",
-    "contacts" : [{
+    "role" : "Front End Web Developer",
+    "contacts" : {
         "mobile" : "903-2724648",
         "email" : "sparrowdetour@gmail.com",
         "Github" : "rachelgura", 
         "location" : "Dallas, TX",
         "Twitter" :"@rgura"
         
-    }], 
+    }, 
     "welcomeMessage" : "I'm an ambitious professional who takes pleasure in developing innovative and empathetic design.", 
     "biopic" : "images/profile.jpg",
     
