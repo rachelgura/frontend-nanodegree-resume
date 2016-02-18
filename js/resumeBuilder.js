@@ -3,7 +3,7 @@ var bio = {
     "name" : "Rachel Gura",
     "role" : "Front End Web Developer",
     "contacts" : {
-        "mobile" : "903-2724648",
+        "mobile" : "903-272-4648",
         "email" : "sparrowdetour@gmail.com",
         "Github" : "rachelgura", 
         "location" : "Dallas, TX",
@@ -11,9 +11,10 @@ var bio = {
         
     }, 
     "welcomeMessage" : "I'm an ambitious professional who takes pleasure in developing innovative and empathetic design.", 
-    "biopic" : "images/profile.jpg",
-    
-    "skills" : ["Motivated", "Creative Thinker","HTML", "CSS Frameworks", "Bootstrap", "Github"]
+    "skills" : [
+            "Motivated","Creative Thinker","HTML", "CSS Frameworks", "Bootstrap", "Github"
+    ],
+    "biopic" : "images/profile.jpg"
 };
 
 
@@ -118,6 +119,7 @@ bio.display = function() {
     var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
     var formattedImage = HTMLbioPic.replace("%data%",bio.biopic);
     var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+    
     $("#header").prepend(formattedRole).prepend(formattedName).append(formattedImage,formattedMessage);
     $("#header").append(HTMLskillsStart);
 
@@ -126,14 +128,17 @@ bio.display = function() {
         $("#skills").append(formattedSkills);
     };
 
-    for(contact in bio.contacts) {
-        var formattedMobile = HTMLmobile.replace("%data%",bio.contacts[contact].mobile);
-        var formattedEmail = HTMLemail.replace("%data%",bio.contacts[contact].email);
-        var formattedGithub = HTMLgithub.replace("%contact%","Github").replace("%data%",bio.contacts[contact].Github);
-        var formattedLocation =HTMLlocation.replace("%data%", bio.contacts[contact].location);
-        var formattedTwitter =HTMLtwitter.replace("%data%", bio.contacts[contact].Twitter);
-        $("#topContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
-    };
+    
+
+    var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+    var formattedGithub = HTMLgithub.replace("%contact%","Github").replace("%data%",bio.contacts.Github);
+    var formattedLocation =HTMLlocation.replace("%data%", bio.contacts.location);
+    var formattedTwitter =HTMLtwitter.replace("%data%", bio.contacts.Twitter);
+
+    $("#topContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedTwitter,formattedLocation);
+
+   
 };
 
 
@@ -182,7 +187,9 @@ education.display();
 bio.display();
 
 
+
 $("#mapDiv").append(googleMap);
+
 
 
 // display blocks //
